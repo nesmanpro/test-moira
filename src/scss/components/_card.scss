@@ -84,3 +84,77 @@
         }
     }
 }
+
+
+@media screen and (max-width: 1050px) {
+
+    .play-cards-container,
+    .learn-cards-container,
+    .enjoy-cards-container {
+        gap: 10px;
+        padding: 10px 10px;
+
+        .card-wrapper .card-inner {
+            max-width: 400px;
+            max-height: 400px;
+
+            .card-image {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+            }
+
+            .card-text {
+                display: flex;
+                align-items: center;
+                height: 100px;
+                padding: 0 15px;
+
+                .card-icon {
+                    width: 75px;
+                    height: 80px;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    .play-cards-container,
+    .learn-cards-container,
+    .enjoy-cards-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px 10px;
+
+        .card-wrapper .card-inner {
+            max-width: 500px;
+            max-height: 650px;
+
+            .card-image {
+                width: 100%;
+                height: 400px;
+                object-fit: cover;
+            }
+
+            .card-text {
+                display: flex;
+                align-items: center;
+                height: 150px;
+                padding: 0 15px;
+
+                .card-icon {
+                    width: 75px;
+                    height: 80px;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+
+            }
+        }
+    }
+}

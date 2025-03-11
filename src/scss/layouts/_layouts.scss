@@ -1,9 +1,19 @@
 .app-shell {
     display: flex;
+    overflow: hidden;
 
     .navigation {
-        flex-basis: 20%;
-        height: 100dvh;
+        flex-basis: 10%;
+        height: 100%;
+
+        .close {
+            transition: all 0.6s ease-in-out;
+            left: 0%;
+        }
+
+        .close-menu-btn {
+            display: none;
+        }
 
         .navbar-wrapper {
             position: fixed;
@@ -13,21 +23,24 @@
             border-right: solid 1px #4b4b4f30;
             background-color: var(--color-bg--light);
             z-index: 10;
+            transition: left 0.3s ease-in-out;
         }
     }
 
     .home-page {
-        flex-basis: 80%;
+        flex-basis: 85%;
         margin: 0 auto;
         width: 100%;
         max-width: 970px;
         min-height: 80dvh;
 
+        .top-navigation {
+            display: none;
+        }
+
         .hero {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
 
             .secondary-menu {
                 display: none;
@@ -49,12 +62,11 @@
 
 }
 
-
-@media screen and (min-width: 1900px) {
+@media screen and (min-width: 1600px) {
     .app-shell {
 
         .navigation {
-            flex-basis: 10%;
+            flex-basis: 0%;
         }
 
         .home-page {
@@ -62,40 +74,30 @@
         }
     }
 }
+
 
 @media screen and (max-width: 1200px) {
     .app-shell {
 
         .navigation {
-            flex-basis: 20%;
+            flex-basis: 0%;
+
+            .close {
+                left: -100%;
+            }
+
+            .close-menu-btn {
+                display: flex;
+            }
         }
 
         .home-page {
-            flex-basis: 80%;
+            flex-basis: 0%;
             width: 100%;
             max-width: 850px;
 
             .top-navigation {
-                display: none;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 1050px) {
-    .app-shell {
-
-        .navigation {
-            display: none;
-        }
-
-        .home-page {
-            flex-basis: 100%;
-
-
-            .top-navigation {
                 display: flex;
-                width: 100%;
                 max-width: 990px;
 
                 .header {
@@ -113,6 +115,27 @@
                         max-width: 150px;
                     }
                 }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .app-shell {
+        margin: 0 30px;
+
+        .navigation {
+            flex-basis: 0%;
+        }
+
+        .home-page {
+            flex-basis: 100%;
+            min-width: 100%;
+
+            .top-navigation {
+                display: flex;
+                max-width: 990px;
+
             }
         }
     }
@@ -121,37 +144,29 @@
 @media screen and (max-width: 750px) {
     .app-shell {
 
-        .navigation {
-            display: none;
-        }
-
         .home-page {
-            min-width: 100%;
-
-            .hero {
-                .secondary-menu {
-                    display: flex;
-                }
-            }
+            display: flex;
+            justify-content: center;
+            flex-basis: 100%;
+            width: 100%;
 
             .top-navigation {
                 display: flex;
                 width: 100%;
-                max-width: 990px;
+                max-width: 100%;
 
-                .header {
+            }
+
+            .hero {
+                width: 110%;
+
+                .secondary-menu {
                     display: flex;
                     justify-content: space-between;
-                    align-items: center;
-                    width: 100%;
-                    padding: 8px 0 3px 0;
-                }
+                    width: 95%;
 
-                .top-navigation-logo {
-                    margin: 0 auto;
-
-                    img {
-                        max-width: 150px;
+                    .header-link {
+                        padding: 15px 30px;
                     }
                 }
             }
@@ -159,7 +174,7 @@
     }
 }
 
-@media screen and (max-width: 590px) {
+@media screen and (max-width: 600px) {
     .app-shell {
 
         .navigation {
@@ -167,21 +182,28 @@
         }
 
         .home-page {
-            min-width: 100%;
+            flex-basis: 100%;
+            width: 100%;
 
         }
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 500px) {
     .app-shell {
 
-        .navigation {
-            flex-basis: 10%;
-        }
-
         .home-page {
-            min-width: 100vw;
+            width: 110%;
+
         }
     }
+}
+
+
+@media screen and (max-width: 455px) {
+
+    .home-page {
+        min-width: 125%;
+    }
+
 }

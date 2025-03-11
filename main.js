@@ -5,12 +5,6 @@ const playContainer = document.querySelector('.play-cards-container');
 const learnContainer = document.querySelector('.learn-cards-container');
 const enjoyContainer = document.querySelector('.enjoy-cards-container');
 
-
-// playContainer.appendChild('Loading...');
-
-
-
-
 const cardLayout = (card) => {
 
     const cardWrapper = document.createElement("a");
@@ -104,3 +98,18 @@ const renderCards = (containr, items) => {
 renderCards(playContainer, playItems);
 renderCards(learnContainer, learnItems);
 renderCards(enjoyContainer, enjoyItems);
+
+
+const openMenu = document.querySelector('.btn-open-menu');
+const closeMenu = document.querySelector('.close-menu-btn');
+const menu = document.querySelector('.navbar-wrapper');
+
+openMenu.addEventListener('click', (e) => {
+    e.preventDefault();
+    menu.classList.remove('close');
+});
+
+closeMenu.addEventListener('click', (e) => {
+    e.preventDefault();
+    menu.classList.add('close');
+});

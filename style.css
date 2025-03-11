@@ -193,6 +193,18 @@ button {
   top: 12px;
 }
 
+.navbar-wrapper .close-menu-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+  cursor: pointer;
+}
+.navbar-wrapper .close-menu-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-text--light);
+}
 .navbar-wrapper .sidebar-item {
   display: flex;
   align-items: center;
@@ -289,7 +301,6 @@ li:nth-child(odd) {
   box-sizing: border-box;
   position: relative;
   display: block;
-  transform: scale(1.5);
   width: 16px;
   height: 16px;
   margin-left: 15px;
@@ -377,6 +388,48 @@ li:nth-child(odd) {
   margin-bottom: 20px;
 }
 
+@media screen and (max-width: 500px) {
+  .home-page .swiper {
+    width: 100%;
+    height: 400px;
+  }
+  .home-page .swiper .swiper-wrapper .swiper-slide .caption {
+    left: 20px;
+    width: 300px;
+  }
+  .home-page .swiper .swiper-wrapper .swiper-slide .caption p {
+    font-size: 15px;
+    margin: 10px 0;
+  }
+  .home-page .swiper .swiper-wrapper .swiper-slide .caption .caption-action {
+    padding: 15px 20px;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 375px) {
+  .home-page .swiper {
+    width: 100%;
+    height: 400px;
+  }
+  .home-page .swiper .swiper-wrapper .swiper-slide .caption {
+    left: 20px;
+    width: 300px;
+  }
+  .home-page .swiper .swiper-wrapper .swiper-slide .caption p {
+    font-size: 15px;
+    margin: 10px 0;
+  }
+  .home-page .swiper .swiper-wrapper .swiper-slide .caption .caption-action {
+    padding: 15px 20px;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0;
+  }
+}
 .play-cards-container,
 .learn-cards-container,
 .enjoy-cards-container {
@@ -471,6 +524,81 @@ li:nth-child(odd) {
   -webkit-box-orient: vertical;
 }
 
+@media screen and (max-width: 1050px) {
+  .play-cards-container,
+  .learn-cards-container,
+  .enjoy-cards-container {
+    gap: 10px;
+    padding: 10px 10px;
+  }
+  .play-cards-container .card-wrapper .card-inner,
+  .learn-cards-container .card-wrapper .card-inner,
+  .enjoy-cards-container .card-wrapper .card-inner {
+    max-width: 400px;
+    max-height: 400px;
+  }
+  .play-cards-container .card-wrapper .card-inner .card-image,
+  .learn-cards-container .card-wrapper .card-inner .card-image,
+  .enjoy-cards-container .card-wrapper .card-inner .card-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+  .play-cards-container .card-wrapper .card-inner .card-text,
+  .learn-cards-container .card-wrapper .card-inner .card-text,
+  .enjoy-cards-container .card-wrapper .card-inner .card-text {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    padding: 0 15px;
+  }
+  .play-cards-container .card-wrapper .card-inner .card-text .card-icon,
+  .learn-cards-container .card-wrapper .card-inner .card-text .card-icon,
+  .enjoy-cards-container .card-wrapper .card-inner .card-text .card-icon {
+    width: 75px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .play-cards-container,
+  .learn-cards-container,
+  .enjoy-cards-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 10px;
+  }
+  .play-cards-container .card-wrapper .card-inner,
+  .learn-cards-container .card-wrapper .card-inner,
+  .enjoy-cards-container .card-wrapper .card-inner {
+    max-width: 500px;
+    max-height: 650px;
+  }
+  .play-cards-container .card-wrapper .card-inner .card-image,
+  .learn-cards-container .card-wrapper .card-inner .card-image,
+  .enjoy-cards-container .card-wrapper .card-inner .card-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+  .play-cards-container .card-wrapper .card-inner .card-text,
+  .learn-cards-container .card-wrapper .card-inner .card-text,
+  .enjoy-cards-container .card-wrapper .card-inner .card-text {
+    display: flex;
+    align-items: center;
+    height: 150px;
+    padding: 0 15px;
+  }
+  .play-cards-container .card-wrapper .card-inner .card-text .card-icon,
+  .learn-cards-container .card-wrapper .card-inner .card-text .card-icon,
+  .enjoy-cards-container .card-wrapper .card-inner .card-text .card-icon {
+    width: 75px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}
 footer {
   display: flex;
   flex-direction: column;
@@ -577,10 +705,18 @@ h1 {
 /* layouts */
 .app-shell {
   display: flex;
+  overflow: hidden;
 }
 .app-shell .navigation {
-  flex-basis: 20%;
-  height: 100dvh;
+  flex-basis: 10%;
+  height: 100%;
+}
+.app-shell .navigation .close {
+  transition: all 0.6s ease-in-out;
+  left: 0%;
+}
+.app-shell .navigation .close-menu-btn {
+  display: none;
 }
 .app-shell .navigation .navbar-wrapper {
   position: fixed;
@@ -590,19 +726,21 @@ h1 {
   border-right: solid 1px rgba(75, 75, 79, 0.1882352941);
   background-color: var(--color-bg--light);
   z-index: 10;
+  transition: left 0.3s ease-in-out;
 }
 .app-shell .home-page {
-  flex-basis: 80%;
+  flex-basis: 85%;
   margin: 0 auto;
   width: 100%;
   max-width: 970px;
   min-height: 80dvh;
 }
+.app-shell .home-page .top-navigation {
+  display: none;
+}
 .app-shell .home-page .hero {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 .app-shell .home-page .hero .secondary-menu {
   display: none;
@@ -617,9 +755,9 @@ h1 {
   color: var(--color-text--dark);
 }
 
-@media screen and (min-width: 1900px) {
+@media screen and (min-width: 1600px) {
   .app-shell .navigation {
-    flex-basis: 10%;
+    flex-basis: 0%;
   }
   .app-shell .home-page {
     flex-basis: 100%;
@@ -627,86 +765,94 @@ h1 {
 }
 @media screen and (max-width: 1200px) {
   .app-shell .navigation {
-    flex-basis: 20%;
+    flex-basis: 0%;
+  }
+  .app-shell .navigation .close {
+    left: -100%;
+  }
+  .app-shell .navigation .close-menu-btn {
+    display: flex;
   }
   .app-shell .home-page {
-    flex-basis: 80%;
+    flex-basis: 0%;
     width: 100%;
     max-width: 850px;
   }
   .app-shell .home-page .top-navigation {
-    display: none;
+    display: flex;
+    max-width: 990px;
+  }
+  .app-shell .home-page .top-navigation .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 8px 0 3px 0;
+  }
+  .app-shell .home-page .top-navigation .top-navigation-logo {
+    margin: 0 auto;
+  }
+  .app-shell .home-page .top-navigation .top-navigation-logo img {
+    max-width: 150px;
   }
 }
 @media screen and (max-width: 1050px) {
+  .app-shell {
+    margin: 0 30px;
+  }
+  .app-shell .navigation {
+    flex-basis: 0%;
+  }
+  .app-shell .home-page {
+    flex-basis: 100%;
+    min-width: 100%;
+  }
+  .app-shell .home-page .top-navigation {
+    display: flex;
+    max-width: 990px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .app-shell .home-page {
+    display: flex;
+    justify-content: center;
+    flex-basis: 100%;
+    width: 100%;
+  }
+  .app-shell .home-page .top-navigation {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+  }
+  .app-shell .home-page .hero {
+    width: 110%;
+  }
+  .app-shell .home-page .hero .secondary-menu {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+  }
+  .app-shell .home-page .hero .secondary-menu .header-link {
+    padding: 15px 30px;
+  }
+}
+@media screen and (max-width: 600px) {
   .app-shell .navigation {
     display: none;
   }
   .app-shell .home-page {
     flex-basis: 100%;
-  }
-  .app-shell .home-page .top-navigation {
-    display: flex;
     width: 100%;
-    max-width: 990px;
-  }
-  .app-shell .home-page .top-navigation .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 8px 0 3px 0;
-  }
-  .app-shell .home-page .top-navigation .top-navigation-logo {
-    margin: 0 auto;
-  }
-  .app-shell .home-page .top-navigation .top-navigation-logo img {
-    max-width: 150px;
   }
 }
-@media screen and (max-width: 750px) {
-  .app-shell .navigation {
-    display: none;
-  }
+@media screen and (max-width: 500px) {
   .app-shell .home-page {
-    min-width: 100%;
-  }
-  .app-shell .home-page .hero .secondary-menu {
-    display: flex;
-  }
-  .app-shell .home-page .top-navigation {
-    display: flex;
-    width: 100%;
-    max-width: 990px;
-  }
-  .app-shell .home-page .top-navigation .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 8px 0 3px 0;
-  }
-  .app-shell .home-page .top-navigation .top-navigation-logo {
-    margin: 0 auto;
-  }
-  .app-shell .home-page .top-navigation .top-navigation-logo img {
-    max-width: 150px;
+    width: 110%;
   }
 }
-@media screen and (max-width: 590px) {
-  .app-shell .navigation {
-    display: none;
-  }
-  .app-shell .home-page {
-    min-width: 100%;
-  }
-}
-@media screen and (max-width: 480px) {
-  .app-shell .navigation {
-    flex-basis: 10%;
-  }
-  .app-shell .home-page {
-    min-width: 100vw;
+@media screen and (max-width: 455px) {
+  .home-page {
+    min-width: 125%;
   }
 }
 
