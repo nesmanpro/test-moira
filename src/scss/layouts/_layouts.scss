@@ -1,0 +1,187 @@
+.app-shell {
+    display: flex;
+
+    .navigation {
+        flex-basis: 20%;
+        height: 100dvh;
+
+        .navbar-wrapper {
+            position: fixed;
+            width: 250px;
+            height: 100dvh;
+            overflow: hidden;
+            border-right: solid 1px #4b4b4f30;
+            background-color: var(--color-bg--light);
+            z-index: 10;
+        }
+    }
+
+    .home-page {
+        flex-basis: 80%;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 970px;
+        min-height: 80dvh;
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .secondary-menu {
+                display: none;
+            }
+
+            .title {
+                text-align: center;
+                padding: 20px 30px;
+
+                h1 {
+                    font-size: 1.4em;
+
+                    font-weight: 600;
+                    color: var(--color-text--dark);
+                }
+            }
+        }
+    }
+
+}
+
+
+@media screen and (min-width: 1900px) {
+    .app-shell {
+
+        .navigation {
+            flex-basis: 10%;
+        }
+
+        .home-page {
+            flex-basis: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .app-shell {
+
+        .navigation {
+            flex-basis: 20%;
+        }
+
+        .home-page {
+            flex-basis: 80%;
+            width: 100%;
+            max-width: 850px;
+
+            .top-navigation {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .app-shell {
+
+        .navigation {
+            display: none;
+        }
+
+        .home-page {
+            flex-basis: 100%;
+
+
+            .top-navigation {
+                display: flex;
+                width: 100%;
+                max-width: 990px;
+
+                .header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    padding: 8px 0 3px 0;
+                }
+
+                .top-navigation-logo {
+                    margin: 0 auto;
+
+                    img {
+                        max-width: 150px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .app-shell {
+
+        .navigation {
+            display: none;
+        }
+
+        .home-page {
+            min-width: 100%;
+
+            .hero {
+                .secondary-menu {
+                    display: flex;
+                }
+            }
+
+            .top-navigation {
+                display: flex;
+                width: 100%;
+                max-width: 990px;
+
+                .header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    padding: 8px 0 3px 0;
+                }
+
+                .top-navigation-logo {
+                    margin: 0 auto;
+
+                    img {
+                        max-width: 150px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .app-shell {
+
+        .navigation {
+            display: none;
+        }
+
+        .home-page {
+            min-width: 100%;
+
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .app-shell {
+
+        .navigation {
+            flex-basis: 10%;
+        }
+
+        .home-page {
+            min-width: 100vw;
+        }
+    }
+}
